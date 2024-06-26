@@ -1,3 +1,8 @@
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+
 let Api_url = "https://opentdb.com/api.php?amount=1";
 
 let btn = document.querySelector("#search")
@@ -41,13 +46,13 @@ btn.addEventListener("click" , async  function(){
     check.disabled = false; // Enable the check button once a question is displayed
   });
 
-async function displayQuestion() {
+ async function displayQuestion() {
 
     // Await the result of the getaxios function
     let result =  await  getaxios();
 
     let p = document.querySelector("#category")
-    p.innerText =  result[0].category;
+    p.innerHTML =  result[0].category;
 
     let quetion = document.querySelector("#question");
     quetion.innerHTML = `<i class="fa-brands fa-quora"></i>  ${result[0].question}`;
@@ -60,7 +65,7 @@ async function displayQuestion() {
     console.log(correctAnswer)
 
     let opt =  incorrect
-    opt.splice(Math.floor(Math.random()*(incorrect.length +1)), 0 , correctAnswer) // for random option generated
+    opt.splice(Math.floor(Math.random()*(incorrect.length + 1)), 0 , correctAnswer) // for random option generated
 
     ul.innerHTML = `${opt.map((option)=> 
         `<a href="#" class="list-group-item list-group-item-action option">${option}</a>`
@@ -68,7 +73,7 @@ async function displayQuestion() {
 
     console.log(opt)
     optionSelect()
-    questionsAsked++
+    // questionsAsked++
     
 };
 
@@ -107,7 +112,7 @@ check.addEventListener("click", () => {
     console.log("Score checked");
   });
 
-
+});
 
 
 
