@@ -22,7 +22,9 @@ let totalQuestions = 10;
 // Disable the check button initially
 check.disabled = true;
 
-
+setTimeout(()=>{
+   displayQuestion();
+},1000 )
 
 async function getaxios(){
     try{
